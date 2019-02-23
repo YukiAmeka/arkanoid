@@ -15,8 +15,7 @@ class Ball {
     draw(ctx) {
         ctx.beginPath();
         ctx.arc(this.position.x, this.position.y, this.radius, 0, Math.PI*2);
-        ctx.closePath();
-        ctx.fillStyle = '#f00';
+        ctx.fillStyle = '#0f0';
         ctx.fill();
     }
     
@@ -29,13 +28,9 @@ class Ball {
          if (this.position.y + this.radius > this.game.gameHeight || this.position.y - this.radius < 0) {
             this.speed.y = -this.speed.y;
         };
-        let topOfPaddle = this.game.paddle.position.y;
-        let leftSideOfPaddle = this.game.paddle.position.x;
-        let rightSideOfPaddle = this.game.paddle.position.x + this.game.paddle.width;
-        if (this.position.y + this.radius > topOfPaddle 
-            && this.position.x - this.radius >= leftSideOfPaddle 
-            && this.position.x + this.radius <= rightSideOfPaddle) {
+        if (detectCollision(this, this.game.paddle)) {
             this.speed.y = -this.speed.y;
+            this.position.y = this.game.paddle.position.y - this.radius;
         }
     }
 }

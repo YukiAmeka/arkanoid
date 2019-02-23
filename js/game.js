@@ -7,7 +7,9 @@ class Game {
     start() {
         this.paddle = new Paddle(this);
         this.ball = new Ball(this);
-        this.gameObjects = [this.paddle, this.ball];
+        this.brick = new Brick(this);
+        let bricks = buildLevel(game, level1);
+        this.gameObjects = [this.paddle, this.ball, ...bricks];
         new InputHandler(this.paddle);
     }
     
