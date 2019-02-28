@@ -5,10 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Arkanoid</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet"> 
     <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 <body>
-    <canvas id="gameScreen" width="800" height="600"></canvas>
+    <h1>Arkanoid</h1>
+    <div class="container">
+        <div class="left-side-menu">
+            <button class="rotated">Help</button>
+            <button class="rotated">Restart</button>
+            <button class="rotated">About</button>
+        </div>
+        <canvas id="gameScreen" width="800" height="600"></canvas>
+        <div class="right-side-menu">
+            <div>
+                <h2>Level</h2>
+                <p>lvl #</p>
+            </div>
+            <div>
+                <h2>Score</h2>
+                <p>000 000</p>
+            </div>
+            <div>
+                <h2>Lives</h2>
+                <p>paddle<br>paddle<br>paddle</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>©2019 Basic arkanoid game written in vanila JavaScript by Anna Levchenko as a coding excercise.<br>All rights to the game belong to their respective owners</p>
+    </footer>
     <script type="text/javascript" src="js/paddle.js"></script>
     <script type="text/javascript" src="js/ball.js"></script>
     <script type="text/javascript" src="js/brick.js"></script>

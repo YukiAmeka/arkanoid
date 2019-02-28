@@ -4,6 +4,7 @@ class Brick {
         this.position = position;
         this.width = 80;
         this.height = 24;
+        this.markedForDeletion = false;
     }
     
     draw(ctx) {
@@ -26,6 +27,12 @@ class Brick {
     }
     
     update() {
-        
+        if (detectCollision(this.game.ball, this) === 'horizontal') {
+            this.game.ball.speed.y = -this.game.ball.speed.y;
+            this.markedForDeletion = true;
+        } else if (detectCollision(this.game.ball, this) === 'vertical') {
+            this.game.ball.speed.x = -this.game.ball.speed.x;
+            this.markedForDeletion = true;
+        }
     }
 }
